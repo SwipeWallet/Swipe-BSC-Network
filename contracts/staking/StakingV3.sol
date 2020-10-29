@@ -1,7 +1,7 @@
 pragma solidity ^0.5.0;
 
 import "../SafeMath.sol";
-import "../IErc20Token.sol";
+import "../IBEP20.sol";
 import "../NamedContract.sol";
 import "./StakingStorageV3.sol";
 import "./StakingEventV3.sol";
@@ -122,7 +122,7 @@ contract StakingV3 is NamedContract, StakingStorageV3, StakingEventV3 {
         );
 
         require(
-            IErc20Token(_sxpTokenAddress).transferFrom(
+            IBEP20(_sxpTokenAddress).transferFrom(
                 msg.sender,
                 address(this),
                 amount
@@ -159,7 +159,7 @@ contract StakingV3 is NamedContract, StakingStorageV3, StakingEventV3 {
         );
 
         require(
-            IErc20Token(_sxpTokenAddress).transfer(
+            IBEP20(_sxpTokenAddress).transfer(
                 msg.sender,
                 amount
             ),
@@ -193,7 +193,7 @@ contract StakingV3 is NamedContract, StakingStorageV3, StakingEventV3 {
         );
 
         require(
-            IErc20Token(_sxpTokenAddress).transfer(
+            IBEP20(_sxpTokenAddress).transfer(
                 msg.sender,
                 amount
             ),
@@ -392,7 +392,7 @@ contract StakingV3 is NamedContract, StakingStorageV3, StakingEventV3 {
         );
 
         require(
-            IErc20Token(_sxpTokenAddress).transferFrom(
+            IBEP20(_sxpTokenAddress).transferFrom(
                 msg.sender,
                 address(this),
                 amount
@@ -425,7 +425,7 @@ contract StakingV3 is NamedContract, StakingStorageV3, StakingEventV3 {
         );
 
         require(
-            IErc20Token(_sxpTokenAddress).transfer(
+            IBEP20(_sxpTokenAddress).transfer(
                 msg.sender,
                 amount
             ),
@@ -491,7 +491,7 @@ contract StakingV3 is NamedContract, StakingStorageV3, StakingEventV3 {
             "Can't transfer SXP token out"
         );
 
-        return IErc20Token(tokenAddress).transfer(
+        return IBEP20(tokenAddress).transfer(
             toAddress,
             amount
         );
